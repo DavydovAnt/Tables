@@ -97,7 +97,7 @@ namespace CppWinForm1 {
 			this->textBox4 = (gcnew System::Windows::Forms::TextBox());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
-			this->button5 = (gcnew System::Windows::Forms::Button());
+			//this->button5 = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -276,13 +276,13 @@ namespace CppWinForm1 {
 			// 
 			// button5
 			// 
-			this->button5->Location = System::Drawing::Point(656, 241);
+			/*this->button5->Location = System::Drawing::Point(656, 241);
 			this->button5->Name = L"button5";
 			this->button5->Size = System::Drawing::Size(75, 23);
 			this->button5->TabIndex = 19;
 			this->button5->Text = L"В файл";
 			this->button5->UseVisualStyleBackColor = true;
-			this->button5->Click += gcnew System::EventHandler(this, &MyForm::button5_Click);
+			this->button5->Click += gcnew System::EventHandler(this, &MyForm::button5_Click);*/
 			// 
 			// MyForm
 			// 
@@ -423,7 +423,6 @@ private: System::Void button4_Click(System::Object^  sender, System::EventArgs^ 
 	textBox1->Text = Convert::ToString(pTab->GetEfficiency());
 }
 
-//печать
 private: System::Void button5_Click(System::Object^  sender, System::EventArgs^  e) {
 	if (radioButton4->Checked) {
 		//TTree->PrintTable("table.txt");

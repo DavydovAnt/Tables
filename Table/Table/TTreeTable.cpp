@@ -91,16 +91,13 @@ int TTreeTable::DelRecord(TKey k) {
 				Efficiency++;
 			}
 			else {
-				//у удаляем-ой два потомка
 				TTreeNode *pN = pNode->pLeft;
 				pPrev = pNode;
 				while (pN->pRight != NULL) {
-					//поиск крайнего справа у левого поддерева
 					pPrev = pN;
 					pN = pN->pRight;
 					Efficiency++;
 				}
-				//копирование pN в удаляем-ый
 				pNode->Value = pN->Value;
 				pNode->Key = pN->Key;
 				if (pPrev->pRight == pN) {
@@ -108,7 +105,7 @@ int TTreeTable::DelRecord(TKey k) {
 				}
 				else {
 					pPrev->pLeft = pN->pLeft;
-				}//когда у левого поддерева одно звено
+				}
 				pNode = pN;
 				Efficiency++;
 			}
@@ -126,8 +123,6 @@ void TTreeTable::DeleteTreeTab(TTreeNode *pNode) {
 	}
 }
 
-
-//Доступ
 TKey TTreeTable::GetKey()const {
 	if (pCurr == NULL)
 		throw NULL;
@@ -140,13 +135,11 @@ TValue TTreeTable::GetValue()const {
 	return pCurr->Value;
 }
 
-
-//Навигация
 int TTreeTable::Reset() {
 	TTreeNode *pNode = pCurr = pRoot;
-	while (!st.empty()) st.pop();	//очистка стэка
+	while (!st.empty()) st.pop();	
 	CurrPos = 0;
-	while (pNode != NULL) {			//переход к райней левой вершине
+	while (pNode != NULL) {			
 		st.push(pNode);
 		pCurr = pNode;
 		pNode = pNode->pLeft;
@@ -160,15 +153,13 @@ int TTreeTable::IsTabEnded() const {
 
 int TTreeTable::GoNext() {
 	if (!IsTabEnded() && (pCurr != NULL)) {
-		TTreeNode *pNode = pCurr = pCurr->pRight;//переход к правому потомку
+		TTreeNode *pNode = pCurr = pCurr->pRight;
 		st.pop();
 		while (pNode != NULL) {
-			//переход к крайней левой вершине
 			st.push(pNode);
 			pCurr = pNode;
 			pNode = pNode->pLeft;
 		}
-		//если нет правого потомка, см. вершину стэка
 		if ((pCurr == NULL) && !st.empty()) {
 			pCurr = st.top();
 		}
@@ -177,8 +168,6 @@ int TTreeTable::GoNext() {
 	return IsTabEnded();
 }
 
-
-//печать
 void TTreeTable::PrintTable(ostream& os) {
 	os << "Table printing" << endl;
 	level = 0;

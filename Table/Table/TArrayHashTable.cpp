@@ -14,7 +14,6 @@ TArrayHashTable::~TArrayHashTable() {
 }
 
 
-//найти запись
 bool TArrayHashTable::FindRecord(TKey k) {
 	bool result = false;
 	FreePos = -1;
@@ -36,7 +35,6 @@ bool TArrayHashTable::FindRecord(TKey k) {
 	return result;
 }
 
-//добавить запись
 int TArrayHashTable::InsRecord(TKey k, TValue val) {
 	if (IsFull()) {
 		return TabFull;
@@ -48,7 +46,7 @@ int TArrayHashTable::InsRecord(TKey k, TValue val) {
 		}
 		else {
 			if (FreePos = !- 1)
-				CurrPos = FreePos;//используем 1ую пустую строку
+				CurrPos = FreePos;
 			pRecs[CurrPos] = TTabRecord(k, val);
 			DataCount++;
 			return TabOK;
@@ -56,7 +54,6 @@ int TArrayHashTable::InsRecord(TKey k, TValue val) {
 	}
 }
 
-//удалить запись
 int TArrayHashTable::DelRecord(TKey k) {
 	if (IsEmpty()) {
 		return TabEmpty;
@@ -75,10 +72,9 @@ int TArrayHashTable::DelRecord(TKey k) {
 }
 
 
-//Навигация
 int TArrayHashTable::Reset() {
 	CurrPos = 0;
-	while (CurrPos < TabSize) {	//поиск 1ой занятной строки
+	while (CurrPos < TabSize) {	
 		if ((pRecs[CurrPos] != Empty) && (pRecs[CurrPos] != Mark)) {
 			break;
 		}
@@ -93,7 +89,7 @@ int TArrayHashTable::IsTabEnded() const {
 
 int TArrayHashTable::GoNext() {
 	CurrPos++;
-	while (CurrPos < TabSize) {	//поиск след. занятной строки
+	while (CurrPos < TabSize) {	
 		if ((pRecs[CurrPos] != Empty) && (pRecs[CurrPos] != Mark)) {
 			break;
 		}
@@ -102,8 +98,6 @@ int TArrayHashTable::GoNext() {
 	return IsTabEnded();
 }
 
-
-//Доступ
 TKey TArrayHashTable::GetKey()const {
 	if ((DataCount == 0) || (CurrPos >= TabSize))
 		throw -1;

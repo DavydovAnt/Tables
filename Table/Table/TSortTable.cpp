@@ -98,7 +98,7 @@ void TSortTable::SortData() {
 void TSortTable::SelectSort() {
 	int index = 0;
 	for (int i = 0; i < DataCount; i++) {
-		index = i;//номер текущего мин элемента
+		index = i;
 		for (int j = i + 1; j < DataCount; j++) {
 			Efficiency++;
 			if (pRecs[j] < pRecs[index]) {
@@ -107,7 +107,6 @@ void TSortTable::SelectSort() {
 		}
 		if (i != index) {
 			Efficiency++;
-			//обмен записей i и index
 			TTabRecord tmp = pRecs[i];
 			pRecs[i] = pRecs[index];
 			pRecs[index] = tmp;

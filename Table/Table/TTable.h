@@ -14,7 +14,7 @@
 class TTable {
 protected:
 	int DataCount;		//количество записей в таблице
-	int Efficiency;		//показатель эффективности выполнения операции выполнения операции
+	int Efficiency;		//показатель эффективности выполнения операции
 public:
 	TTable() { DataCount = 0; Efficiency = 0; }
 	virtual ~TTable() {};
