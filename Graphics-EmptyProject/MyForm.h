@@ -97,7 +97,6 @@ namespace CppWinForm1 {
 			this->textBox4 = (gcnew System::Windows::Forms::TextBox());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
-			//this->button5 = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -276,20 +275,13 @@ namespace CppWinForm1 {
 			// 
 			// button5
 			// 
-			/*this->button5->Location = System::Drawing::Point(656, 241);
-			this->button5->Name = L"button5";
-			this->button5->Size = System::Drawing::Size(75, 23);
-			this->button5->TabIndex = 19;
-			this->button5->Text = L"В файл";
-			this->button5->UseVisualStyleBackColor = true;
-			this->button5->Click += gcnew System::EventHandler(this, &MyForm::button5_Click);*/
 			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(743, 378);
-			this->Controls->Add(this->button5);
+			//this->Controls->Add(this->button5);
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->textBox4);
@@ -315,7 +307,7 @@ namespace CppWinForm1 {
 			this->PerformLayout();
 
 		}
-		//Печать
+
 		void Print(DataGridView^ grid) {
 			grid->ColumnCount = 2;
 			grid->RowCount = pTab->GetDataCount();
@@ -333,7 +325,7 @@ namespace CppWinForm1 {
 	}
 	private: System::Void dataGridView1_CellContentClick(System::Object^  sender, System::Windows::Forms::DataGridViewCellEventArgs^  e) {
 	}
-//создать
+
 private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
 	if (pTab) {
 		delete pTab;
@@ -341,7 +333,7 @@ private: System::Void button1_Click(System::Object^  sender, System::EventArgs^ 
 		int DataCount = 0, MemSize;
 		
 		DataCount = Convert::ToInt32(textBox2->Text);
-		MemSize = DataCount + 10;
+		MemSize = DataCount + 100;
 		if (radioButton1->Checked)
 			pTab = new TScanTable(MemSize);
 		if (radioButton2->Checked)
@@ -363,7 +355,7 @@ private: System::Void button1_Click(System::Object^  sender, System::EventArgs^ 
 		textBox1->Text = Convert::ToString(pTab->GetEfficiency());
 }
 
-//поиск
+
 private: System::Void button2_Click(System::Object^  sender, System::EventArgs^  e) {
 	pTab->ClearEfficiency();
 
@@ -376,7 +368,7 @@ private: System::Void button2_Click(System::Object^  sender, System::EventArgs^ 
 	textBox1->Text = Convert::ToString(pTab->GetEfficiency());
 }
 
-//добавить
+
 private: System::Void button3_Click(System::Object^  sender, System::EventArgs^  e) {
 	pTab->ClearEfficiency();
 
@@ -401,7 +393,7 @@ private: System::Void button3_Click(System::Object^  sender, System::EventArgs^ 
 	textBox1->Text = Convert::ToString(pTab->GetEfficiency());
 }
 
-//удалить
+
 private: System::Void button4_Click(System::Object^  sender, System::EventArgs^  e) {
 	pTab->ClearEfficiency();
 
@@ -423,12 +415,6 @@ private: System::Void button4_Click(System::Object^  sender, System::EventArgs^ 
 	textBox1->Text = Convert::ToString(pTab->GetEfficiency());
 }
 
-private: System::Void button5_Click(System::Object^  sender, System::EventArgs^  e) {
-	if (radioButton4->Checked) {
-		//TTree->PrintTable("table.txt");
-		textBox4->Text = "Напечатано в файл";
-	}
-	else textBox4->Text = "Выберите дерево";
-}
+
 };
 }

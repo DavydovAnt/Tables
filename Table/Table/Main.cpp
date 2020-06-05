@@ -12,9 +12,13 @@ int main() {
 	TTreeTable a;
 	a.InsRecord(150, "150");
 	a.InsRecord(241, "241");
-	a.InsRecord(17, "17");
+	a.InsRecord(17, "17"); 
 	a.InsRecord(754, "754");
 	a.InsRecord(1150, "1150");
+	a.InsRecord(15, "15");
+	a.InsRecord(100, "100");
+	a.PrintTable(out);
+	a.DelRecord(150);
 	a.PrintTable(out);
 	_getch();
 }

@@ -9,7 +9,7 @@
 #define TabRecDbl -104	//дублирование записи
 #define TabNoMem -105	//нет памяти
 
-#define TabMaxSize 25
+#define TabMaxSize 1000
 
 class TTable {
 protected:
